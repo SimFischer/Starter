@@ -1,0 +1,122 @@
+.page {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-6);
+  width: min(100%, 92rem);
+  margin: 0 auto;
+  padding: var(--sp-6) var(--sp-7);
+}
+
+.eyebrow {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--c-gold-300);
+}
+
+.heading {
+  margin-top: var(--sp-1);
+  font-size: var(--fs-2xl);
+  font-weight: 800;
+}
+
+.lead {
+  margin-top: var(--sp-3);
+  max-width: 60ch;
+  color: var(--c-text-muted);
+}
+
+.rows {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--line);
+}
+
+.row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr);
+  align-items: center;
+  gap: var(--sp-6);
+  padding: var(--sp-5) 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.rowText p {
+  margin-top: var(--sp-2);
+  color: var(--c-text-muted);
+  font-size: var(--fs-sm);
+  max-width: 52ch;
+}
+
+.rowTitle {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  font-size: var(--fs-xl);
+}
+
+.rowIcon {
+  color: var(--c-gold-500);
+}
+
+.control {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.control > [role='radiogroup'] {
+  flex: 1;
+}
+
+.facts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--sp-5);
+}
+
+.facts p {
+  display: flex;
+  gap: var(--sp-3);
+  font-size: var(--fs-sm);
+  color: var(--c-text-muted);
+}
+
+.facts strong {
+  color: var(--c-text);
+}
+
+.factIcon {
+  flex: none;
+  margin-top: 0.15rem;
+  font-size: 1.4rem;
+  color: var(--c-gold-500);
+}
+
+kbd {
+  padding: 0.1rem 0.5rem;
+  border: 1px solid var(--line-strong);
+  border-bottom-width: 3px;
+  border-radius: 0.35rem;
+  font-family: var(--font-text);
+  font-weight: 600;
+  color: var(--c-text);
+}
+
+.warning {
+  padding: var(--sp-3) var(--sp-4);
+  border-radius: var(--radius-md);
+  border: 1px solid rgb(229 72 77 / 0.5);
+  background: rgb(229 72 77 / 0.12);
+}
+
+@media (max-width: 900px) {
+  .page {
+    padding: var(--sp-5) var(--sp-4);
+  }
+  .row,
+  .facts {
+    grid-template-columns: 1fr;
+  }
+}

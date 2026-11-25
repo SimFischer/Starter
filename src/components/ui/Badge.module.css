@@ -1,0 +1,65 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: 0.3rem 0.8rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--line-strong);
+  background: rgb(11 17 28 / 0.72);
+  color: var(--c-text);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  white-space: nowrap;
+  backdrop-filter: blur(6px);
+}
+
+.marker {
+  flex: none;
+  width: 0.55rem;
+  height: 0.55rem;
+  background: currentColor;
+}
+
+/* Distinct marker shapes so the state is readable without colour. */
+.development {
+  color: var(--c-gold-300);
+  border-color: rgb(246 217 148 / 0.45);
+}
+.development .marker {
+  border-radius: 50%;
+  box-shadow: 0 0 0 0.2rem rgb(246 217 148 / 0.2);
+}
+
+.planned {
+  color: var(--c-text-muted);
+}
+.planned .marker {
+  background: transparent;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+}
+
+.cooperative {
+  color: #9ff0c9;
+  border-color: rgb(95 212 154 / 0.4);
+}
+.cooperative .marker {
+  border-radius: 0.15rem;
+  transform: rotate(45deg);
+}
+
+.competitive {
+  color: #cfe0ff;
+  border-color: rgb(146 180 255 / 0.4);
+}
+.competitive .marker {
+  width: 0.75rem;
+  background: linear-gradient(90deg, currentColor 0 40%, transparent 40% 60%, currentColor 60%);
+  border-radius: 0.1rem;
+}
+
+.neutral .marker {
+  display: none;
+}

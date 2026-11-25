@@ -1,0 +1,30 @@
+.shell {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+}
+
+/* Landscape boards: the shell is exactly one screen tall. */
+@media (min-aspect-ratio: 4/3) and (min-width: 901px) {
+  .shell {
+    height: 100dvh;
+  }
+}
+
+.skip {
+  position: absolute;
+  top: var(--sp-2);
+  left: var(--sp-2);
+  z-index: 10;
+  padding: var(--sp-3) var(--sp-4);
+  border-radius: var(--radius-md);
+  background: var(--c-gold-500);
+  color: var(--c-navy-950);
+  font-weight: 600;
+  transform: translateY(-200%);
+}
+
+.skip:focus-visible {
+  transform: none;
+}

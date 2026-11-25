@@ -1,0 +1,71 @@
+/*
+ * TafelArena design tokens – single source of truth (docs/DESIGN_SYSTEM.md).
+ * Layout is designed at 1920×1080 where 1rem = 16px; the root font size
+ * scales with the viewport so the UI keeps its proportions on every board.
+ */
+:root {
+  /* Brand palette */
+  --c-navy-950: #0b111c;
+  --c-navy-900: #101827;
+  --c-slate-800: #1b2940;
+  --c-slate-700: #243552;
+  --c-slate-600: #30445e;
+  --c-gold-500: #e8b95b;
+  --c-gold-300: #f6d994;
+  --c-gold-700: #b8863a;
+  --c-text: #f4f6fa;
+  --c-text-muted: #a9b6c9;
+  --c-positive: #5fd49a;
+
+  /* Semantic roles */
+  --surface-0: var(--c-navy-950);
+  --surface-1: var(--c-navy-900);
+  --surface-2: var(--c-slate-800);
+  --surface-3: var(--c-slate-700);
+  --line: rgb(169 182 201 / 0.16);
+  --line-strong: rgb(169 182 201 / 0.32);
+  --focus-ring: var(--c-gold-300);
+
+  /* Typography */
+  --font-display: 'Bricolage Grotesque Variable', 'Segoe UI', system-ui, sans-serif;
+  --font-text: 'Lexend Variable', 'Segoe UI', system-ui, sans-serif;
+  --fs-xs: 0.875rem;
+  --fs-sm: 1rem;
+  --fs-md: 1.125rem;
+  --fs-lg: 1.375rem;
+  --fs-xl: 1.75rem;
+  --fs-2xl: 2.5rem;
+  --fs-3xl: 3.5rem;
+
+  /* Spacing (4px grid at base size) */
+  --sp-1: 0.25rem;
+  --sp-2: 0.5rem;
+  --sp-3: 0.75rem;
+  --sp-4: 1rem;
+  --sp-5: 1.5rem;
+  --sp-6: 2rem;
+  --sp-7: 3rem;
+  --sp-8: 4rem;
+
+  /* Shape & depth */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.875rem;
+  --radius-lg: 1.25rem;
+  --radius-pill: 999px;
+  --shadow-1: 0 0.25rem 0.75rem rgb(0 0 0 / 0.35);
+  --shadow-2: 0 1rem 2.5rem rgb(0 0 0 / 0.45);
+
+  /* Interaction – touch targets ≥ 3.5rem (56px at base) */
+  --touch-min: 3.5rem;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --dur-fast: 140ms;
+  --dur-base: 240ms;
+  --dur-slow: 480ms;
+
+  /* Per-game accent, overridden inline by game components */
+  --accent: var(--c-gold-500);
+  --accent-2: var(--c-gold-300);
+}

@@ -1,0 +1,152 @@
+/* On landscape boards the launcher fills exactly one screen – no scrolling. */
+.page {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-5);
+  min-height: 0;
+  padding: var(--sp-5) var(--sp-7) var(--sp-6);
+}
+
+.intro {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--sp-5);
+}
+
+.eyebrow {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--c-gold-300);
+}
+
+.heading {
+  margin-top: var(--sp-1);
+  font-size: var(--fs-2xl);
+  font-weight: 800;
+}
+
+.legend {
+  display: flex;
+  gap: var(--sp-5);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: var(--fs-sm);
+  color: var(--c-text-muted);
+}
+
+.legend li {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+}
+
+.grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: var(--sp-5);
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cell {
+  container-type: size;
+  display: flex;
+  min-height: 0;
+}
+
+.cell > * {
+  flex: 1;
+}
+
+/* Portrait / small screens: scrollable two-column fallback. */
+@media (max-aspect-ratio: 4/3), (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: none;
+    grid-auto-rows: 26rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .page {
+    padding: var(--sp-4);
+  }
+  .intro {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .legend {
+    flex-direction: column;
+    gap: var(--sp-2);
+  }
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- Details dialog ---------- */
+.detailBadges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+}
+
+.description {
+  font-size: var(--fs-lg);
+  line-height: 1.55;
+  color: var(--c-text);
+}
+
+.subheading {
+  margin-top: var(--sp-2);
+  font-size: var(--fs-lg);
+  color: var(--c-text);
+}
+
+.modeList {
+  display: grid;
+  gap: var(--sp-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.modeList li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  padding: var(--sp-3) var(--sp-4);
+  border-left: 0.2rem solid var(--c-gold-500);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  background: rgb(11 17 28 / 0.45);
+}
+
+.modeList strong {
+  color: var(--c-text);
+  font-weight: 600;
+}
+
+.modeList span {
+  font-size: var(--fs-sm);
+}
+
+.notice {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+  padding: var(--sp-3) var(--sp-4);
+  border-radius: var(--radius-md);
+  border: 1px solid rgb(246 217 148 / 0.3);
+  background: rgb(232 185 91 / 0.08);
+  color: var(--c-text);
+}
