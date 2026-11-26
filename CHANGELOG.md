@@ -1,5 +1,10 @@
 # Changelog
 
+## [Unveröffentlicht]
+
+### Geändert
+- Bildsprache „Kreide & Gold“ festgelegt (handgemalte Bilderbuch-Illustration, warmes Tageslicht, Kreide-Elemente als Markenzeichen, Gold als einziger Glanz); Asset-Wunschliste überarbeitet und kopierfertige Bild-Prompts in `docs/ASSET_PROMPTS.md`.
+
 ## [0.2.0] – 2026-11-26 – Phase 2: Tafelfußball
 
 ### Hinzugefügt

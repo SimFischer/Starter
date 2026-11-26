@@ -45,4 +45,4 @@ Der Build ist statisch, nutzt relative Pfade und Hash-Routing und läuft damit d
 
 ## Dokumentation
 
-[CLAUDE.md](CLAUDE.md) · [docs/MASTERPLAN.md](docs/MASTERPLAN.md) · [docs/PEDAGOGY.md](docs/PEDAGOGY.md) · [docs/GAME_RULES.md](docs/GAME_RULES.md) · [docs/DESIGN_SYSTEM.md](docs/DESIGN_SYSTEM.md) · [docs/DATA_SCHEMA.md](docs/DATA_SCHEMA.md) · [docs/ASSETS.md](docs/ASSETS.md) · [CHANGELOG.md](CHANGELOG.md)
+[CLAUDE.md](CLAUDE.md) · [docs/MASTERPLAN.md](docs/MASTERPLAN.md) · [docs/PEDAGOGY.md](docs/PEDAGOGY.md) · [docs/GAME_RULES.md](docs/GAME_RULES.md) · [docs/DESIGN_SYSTEM.md](docs/DESIGN_SYSTEM.md) · [docs/DATA_SCHEMA.md](docs/DATA_SCHEMA.md) · [docs/ASSETS.md](docs/ASSETS.md) · [docs/ASSET_PROMPTS.md](docs/ASSET_PROMPTS.md) · [CHANGELOG.md](CHANGELOG.md)

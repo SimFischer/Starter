@@ -31,6 +31,7 @@ Auftrag erfassen → relevante Infos lesen → betroffenen Code prüfen → umse
 - `src/core/` gemeinsame Systeme: `games/` (Typen, Registry), `teams/`, `game-session/` (Undo-History), `answer-modes/` (Katalog, Kartenpool, `useAnswerRound`), `settings/` (App + `persistedSettings` je Spiel), `storage/`. `src/games/<id>/` je Spielmodul (reine `logic.ts` + Tests, `settings.ts`, Setup, Spielansicht, `…Module.tsx` als lazy Einstieg via `load` in `src/games/definitions.ts`). `src/components/` UI (ui/, layout/, game/, game-tile/, illustrations/). `src/app/` App, Hash-Router (`#/spiel/<id>`), Seiten.
 - Spiellogik als reine Funktionen; Spielansicht hält `History<State>`; Antwortmodi über `useAnswerRound` + `RoundControls`/`RoundStage` wiederverwenden. Animationen per CSS (Motion bisher nicht nötig).
 - Einstellungen: `localStorage` (Präfix `tafelarena:`), immer über `sanitize…`-Funktionen gelesen. Größere Daten später IndexedDB, Validierung mit Zod (Phase 4).
+- Illustrationen: Bildsprache „Kreide & Gold" (handgemalt, warmes Tageslicht, Kreide-Elemente, Gold als einziger Glanz) – Regeln in `docs/DESIGN_SYSTEM.md`, Prompts in `docs/ASSET_PROMPTS.md`.
 - Code/Bezeichner englisch, UI und Dokumentation deutsch.
 
 ## Befehle
