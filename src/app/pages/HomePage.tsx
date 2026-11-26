@@ -7,6 +7,7 @@ import { CardDuelIllustration } from '../../components/illustrations/CardDuelIll
 import { Badge, type BadgeTone } from '../../components/ui/Badge';
 import { Button } from '../../components/ui/Button';
 import { Dialog } from '../../components/ui/Dialog';
+import { gamePath } from '../router';
 import styles from './HomePage.module.css';
 
 const STYLE_TONE: Record<PlayStyle, BadgeTone> = {
@@ -50,10 +51,12 @@ export function HomePage() {
               tagline={game.tagline}
               Illustration={game.Illustration}
               accent={game.accent}
-              status={{ tone: 'development', label: 'In Entwicklung' }}
+              status={game.status === 'playable' ? { tone: 'ready', label: 'Spielbereit' } : { tone: 'development', label: 'In Entwicklung' }}
               meta={{ icon: 'users', label: describeTeams(game) }}
               styleBadge={{ tone: STYLE_TONE[game.playStyle], label: PLAY_STYLE_LABEL[game.playStyle] }}
-              onOpen={() => setSelection({ kind: 'game', id: game.id })}
+              onOpen={() =>
+                game.status === 'playable' ? (window.location.hash = gamePath(game.id)) : setSelection({ kind: 'game', id: game.id })
+              }
             />
           </li>
         ))}

@@ -1,0 +1,119 @@
+.slot {
+  perspective: 60rem;
+  width: 13rem;
+  aspect-ratio: 5 / 7;
+  animation: card-rise 520ms var(--ease-out) both;
+  animation-delay: calc(var(--i) * 80ms);
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  animation: card-flip 720ms var(--ease-out) 160ms both;
+  animation-delay: calc(160ms + var(--i) * 80ms);
+}
+
+@keyframes card-rise {
+  from {
+    opacity: 0;
+    transform: translateY(2rem) scale(0.9);
+  }
+}
+
+@keyframes card-flip {
+  from {
+    transform: rotateY(180deg);
+  }
+  to {
+    transform: rotateY(0deg);
+  }
+}
+
+.face {
+  position: absolute;
+  inset: 0;
+  border-radius: 1rem;
+  backface-visibility: hidden;
+  box-shadow: 0 1.2rem 3rem rgb(0 0 0 / 0.5);
+}
+
+.back {
+  transform: rotateY(180deg);
+  display: grid;
+  place-items: center;
+  border: 0.35rem solid var(--c-navy-900);
+  outline: 0.15rem solid var(--c-gold-500);
+  outline-offset: -0.6rem;
+  background:
+    repeating-linear-gradient(45deg, rgb(232 185 91 / 0.14) 0 0.6rem, transparent 0.6rem 1.2rem),
+    var(--c-slate-800);
+}
+
+.backEmblem {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  border: 0.2rem solid var(--c-gold-500);
+  background: var(--c-navy-900);
+}
+
+.front {
+  display: grid;
+  place-items: center;
+  background: linear-gradient(160deg, #fffdf7, #f1eadb);
+  color: #141c2c;
+  box-shadow:
+    0 1.2rem 3rem rgb(0 0 0 / 0.5),
+    0 0 4rem rgb(246 217 148 / 0.45);
+}
+
+.corner {
+  position: absolute;
+  top: 0.7rem;
+  left: 0.9rem;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.cornerBottom {
+  top: auto;
+  left: auto;
+  bottom: 0.7rem;
+  right: 0.9rem;
+  transform: rotate(180deg);
+}
+
+.value {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 6.5rem;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.marks {
+  position: absolute;
+  bottom: 2.2rem;
+  display: flex;
+  gap: 0.5rem;
+  font-size: 1.6rem;
+  color: #3b4660;
+}
+
+.markColors {
+  position: absolute;
+  bottom: 1.4rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.markColors i {
+  display: block;
+  width: 1.6rem;
+  height: 0.3rem;
+  border-radius: 1rem;
+}

@@ -54,6 +54,9 @@ Farbe ist nie das einzige Unterscheidungsmerkmal: Status-Badges haben unterschie
 | `ui/Icon` | Eigenes Strich-Icon-Set (24er Raster) |
 | `layout/AppHeader`, `layout/Wordmark` | Navigation, Vollbild-Schalter, Wortmarke |
 | `game-tile/GameTile` | Spielkachel mit Illustration, Akzent, Status, Meta |
+| `game/TeamEditor`, `TeamSymbol` | Mannschaft bearbeiten (Farbe und Symbol der Gegner gesperrt), Mannschaftssymbole |
+| `game/RoundControls`, `RoundStage` | Lehrkraftsteuerung und Klassenansicht des Rundenablaufs (alle Antwortmodi) |
+| `game/PlayingCard`, `CountdownRing`, `Confetti` | Kartenenthüllung (Flip), ruhiger Countdown ohne Blinken, CSS-Konfetti (bei reduzierter Bewegung aus) |
 
 ## Animation
 

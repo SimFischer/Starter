@@ -45,4 +45,11 @@ export interface GameDefinition {
   plannedPhase: number;
   /** Provisional SVG artwork for the launcher (see docs/ASSETS.md). */
   Illustration: ComponentType;
+  /** Lazily loaded game screen; present exactly when status is 'playable'. */
+  load?: () => Promise<{ default: ComponentType<GameScreenProps> }>;
+}
+
+export interface GameScreenProps {
+  /** Leave the game and return to the collection. */
+  onExit: () => void;
 }

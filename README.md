@@ -8,15 +8,16 @@ TafelArena ist eine tonlose, fachunabhängige Spielesammlung für den Unterricht
 
 ## Stand
 
-Phase 1 (Projektfundament) – siehe [ROADMAP.md](ROADMAP.md).
+Phase 2 (Tafelfußball) – siehe [ROADMAP.md](ROADMAP.md).
 
 Verfügbar:
-- Startseite mit sieben Spielkacheln (alle **„In Entwicklung"**, Details per Klick) und Erklärung des verdeckten Kartenduells
+- **Tafelfußball** – spielbar mit verdecktem Kartenduell, Mannschaftsberatung, offener Klassenrunde oder freier Steuerung
+- Startseite mit sieben Spielkacheln (Tafelfußball „Spielbereit", die übrigen **„In Entwicklung"**) und Erklärung des verdeckten Kartenduells
 - Navigation; Fragenbibliothek und KI-Prompt-Generator als gekennzeichnete Vorschau („Geplant")
 - Einstellungen: Animationen (System / Voll / Reduziert), Darstellungsgröße (100–120 %), Zurücksetzen
 - Vollbild (Schaltfläche oder Taste **F**), Skalierung für 1366×768 bis 3840×2160
 
-Noch nicht spielbar: alle Spiele (ab Phase 2 Tafelfußball).
+Noch in Entwicklung: die übrigen sechs Spiele.
 
 ## Lokale Entwicklung
 
@@ -33,7 +34,8 @@ npm run preview    # Build lokal ansehen
 
 ## Bedienung
 
-- Spielkachel antippen → Beschreibung, Antwortmodi und Entwicklungsstand.
+- Spielkachel antippen → spielbare Spiele öffnen ihre Einstellungen, alle anderen zeigen Beschreibung und Entwicklungsstand.
+- Im Spiel: **→ / 1** und **← / 2** Spielzug für Mannschaft 1 bzw. 2 · **Leertaste** nächster Rundenschritt (Bedenkzeit starten, Karte ziehen) · **P** oder **Esc** Pause · **Rücktaste** oder **Strg+Z** rückgängig.
 - **F** oder Schaltfläche oben rechts → Vollbild.
 - Einstellungen werden nur lokal im Browser gespeichert. Es werden keine Schülerdaten erhoben, keine externen Dienste genutzt und keine Töne ausgegeben.
 

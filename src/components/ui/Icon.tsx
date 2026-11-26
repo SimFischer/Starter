@@ -16,6 +16,19 @@ const PATHS = {
   reset: 'M4 12a8 8 0 1 0 2.4-5.7L4 8.5M4 4v4.5h4.5',
   motion: 'M3 12h4l3-7 4 14 3-7h4',
   text: 'M4 7V5h12v2M10 5v14M8 19h4M14 12h6M17 12v7M15.5 19h3',
+  timer: 'M12 21a8 8 0 1 0 0-16 8 8 0 0 0 0 16zM12 9v4l2.5 2M10 2h4',
+  card: 'M7 3h10a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zM9 7h1M14 17h1',
+  pick: 'M4 6h7v12H4zM13 6h7v12h-7zM7.5 10v4M16.5 10v4',
+  plus: 'M12 5v14M5 12h14',
+  skip: 'M5 5l8 7-8 7zM17 5v14',
+  undo: 'M9 14L4 9l5-5M4 9h11a5 5 0 0 1 0 10h-3',
+  pause: 'M8 5v14M16 5v14',
+  play: 'M7 4.5l12 7.5-12 7.5z',
+  flag: 'M5 21V4M5 4h11l-2 4 2 4H5',
+  shuffle: 'M3 7h3.5c3 0 4.5 10 7.5 10H21M3 17h3.5c1.4 0 2.4-2 3.3-4.2M14.2 11C15 9 16 7 17.5 7H21M18 4l3 3-3 3M18 14l3 3-3 3',
+  arrowRight: 'M5 12h14M13 6l6 6-6 6',
+  arrowLeft: 'M19 12H5M11 6l-6 6 6 6',
+  exit: 'M15 4h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-3M10 17l-5-5 5-5M5 12h11',
 } as const;
 
 export type IconName = keyof typeof PATHS;
