@@ -1,8 +1,15 @@
 # Changelog
 
-## [Unveröffentlicht]
+## [0.3.0] – 2026-11-27 – Phase 3: Pferderennen & Vier gewinnt
+
+### Hinzugefügt
+- **Pferderennen spielbar:** 2–4 Mannschaften, einstellbare Streckenlänge, Spielzüge unterschiedlicher Stärke („Starker Zug ×2“), Galopp-Animation, Fortschritt je Bahn, Zieleinlauf und Platzierung (gleicher Fortschritt = gleicher Platz).
+- **Vier gewinnt spielbar:** drei Brettgrößen, „Wer richtig antwortet, setzt“ oder „Abwechselnd“ mit „Weitergeben“, Spaltenwahl per Tippen oder Zifferntaste, fallende Steine mit Symbolen, Gewinnreihe mit Kreidestrich, Unentschieden-Erkennung.
+- Gemeinsamer Spielrahmen für alle Mannschaftsspiele (Anzeigetafel, Steuerleiste, Pause, Beenden, Tastenkürzel, Ergebnisanzeige) und gemeinsame Setup-Bausteine inkl. 2–4 Mannschaften.
 
 ### Geändert
+- Tafelfußball nutzt den gemeinsamen Spielrahmen (Verhalten unverändert).
+- Steuerleiste bricht auf schmaleren Bildschirmen (unter 3:2) in zwei Zeilen um.
 - Bildsprache „Kreide & Gold“ festgelegt (handgemalte Bilderbuch-Illustration, warmes Tageslicht, Kreide-Elemente als Markenzeichen, Gold als einziger Glanz); Asset-Wunschliste überarbeitet und kopierfertige Bild-Prompts in `docs/ASSET_PROMPTS.md`.
 
 ## [0.2.0] – 2026-11-26 – Phase 2: Tafelfußball

@@ -48,3 +48,11 @@ Die Metadaten sind in `src/games/definitions.ts` hinterlegt und per Test (`tests
 **Idee:** Schatzkarte mit Truhen; richtige Antwort öffnet eine Truhe/ein Feld mit Belohnung.
 **Funktionen:** Anzahl Truhen; Punktwerte; Goldmünzen und Edelsteine; verdeckte Belohnungen; optionale Bonusfunde; konfigurierbare Verteilung; kooperativ oder Mannschaften; Rückgängig. **Zufallseinfluss konfigurierbar:** mindestens gleichwertige Truhen, zufällig verteilte Werte, optionale seltene Bonusfunde.
 **Visuell:** illustrierte Karte, Landschaften, sichtbare Truhen, Öffnungsanimation, Münzen/Edelsteine, Leuchteffekte, Fortschritt/Punkte, Abschlussanimation. Später weitere Karten (Pirateninsel, Tempel, Mittelalter, Wald, Berge).
+
+## Umsetzungsentscheidungen (Phase 3)
+
+- **Pferderennen – Etappen:** „Streckenlänge“ und „Anzahl der Etappen“ sind zusammengelegt: Die Strecke besteht aus 6–15 Etappen, jede richtige Antwort bringt 1–2 Etappen.
+- **Pferderennen – Spielzüge unterschiedlicher Stärke:** Schalter „Starker Zug ×2“ in der Steuerleiste; er gilt für den nächsten Spielzug und setzt sich danach zurück.
+- **Pferderennen – Ende:** Das Rennen endet beim ersten Zieleinlauf, durch Zeitablauf oder durch die Lehrkraft; die Platzierung folgt dem Fortschritt, gleicher Fortschritt ergibt denselben Platz.
+- **Vier gewinnt – Zugmodi:** „Wer richtig antwortet, setzt“ (Standard) oder „Abwechselnd“ (Frage an die Mannschaft am Zug; ohne richtige Antwort „Weitergeben“). Nach „Richtig“ wählt die Mannschaft die Spalte; der Zug lässt sich vor dem Setzen abbrechen.
+- **Vier gewinnt – Spielende durch die Lehrkraft** ohne vier in einer Reihe zählt als Unentschieden.

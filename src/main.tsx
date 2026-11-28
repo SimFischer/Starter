@@ -5,12 +5,15 @@ import '@fontsource-variable/lexend';
 import '@fontsource-variable/bricolage-grotesque';
 import './styles/global.css';
 import { App } from './app/App';
+import { ErrorBoundary } from './components/ui/ErrorBoundary';
 
 const root = document.getElementById('root');
 if (!root) throw new Error('Root element #root not found');
 
 createRoot(root).render(
   <StrictMode>
-    <App />
+    <ErrorBoundary what="TafelArena">
+      <App />
+    </ErrorBoundary>
   </StrictMode>,
 );

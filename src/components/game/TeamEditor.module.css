@@ -115,3 +115,32 @@
   opacity: 0.2;
   cursor: not-allowed;
 }
+
+.compact {
+  gap: var(--sp-3);
+  padding: var(--sp-4);
+}
+
+.compact .badge {
+  width: 3.5rem;
+  height: 3.5rem;
+  font-size: 2rem;
+}
+
+.compact .input {
+  font-size: var(--fs-lg);
+}
+
+.compact .row {
+  gap: 0.3rem;
+}
+
+.compact .swatch,
+.compact .symbol {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.compact .symbol {
+  font-size: 1.4rem;
+}

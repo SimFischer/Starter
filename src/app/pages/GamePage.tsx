@@ -2,6 +2,7 @@ import { Suspense, lazy, useMemo } from 'react';
 import { listGames } from '../../core/games/registry';
 import { ROUTE_PATHS } from '../router';
 import { ButtonLink } from '../../components/ui/Button';
+import { ErrorBoundary } from '../../components/ui/ErrorBoundary';
 import styles from './GamePage.module.css';
 
 const exit = () => {
@@ -25,8 +26,10 @@ export function GamePage({ gameId }: { gameId: string }) {
   }
 
   return (
-    <Suspense fallback={<div className={styles.loading} role="status">{game.title} wird geladen …</div>}>
-      <Screen onExit={exit} />
-    </Suspense>
+    <ErrorBoundary what={game.title} onBack={exit}>
+      <Suspense fallback={<div className={styles.loading} role="status">{game.title} wird geladen …</div>}>
+        <Screen onExit={exit} />
+      </Suspense>
+    </ErrorBoundary>
   );
 }

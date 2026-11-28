@@ -8,16 +8,16 @@ TafelArena ist eine tonlose, fachunabhängige Spielesammlung für den Unterricht
 
 ## Stand
 
-Phase 2 (Tafelfußball) – siehe [ROADMAP.md](ROADMAP.md).
+Phase 3 (Pferderennen & Vier gewinnt) – siehe [ROADMAP.md](ROADMAP.md).
 
 Verfügbar:
-- **Tafelfußball** – spielbar mit verdecktem Kartenduell, Mannschaftsberatung, offener Klassenrunde oder freier Steuerung
-- Startseite mit sieben Spielkacheln (Tafelfußball „Spielbereit", die übrigen **„In Entwicklung"**) und Erklärung des verdeckten Kartenduells
+- **Tafelfußball, Pferderennen (2–4 Mannschaften) und Vier gewinnt** – spielbar mit verdecktem Kartenduell, Mannschaftsberatung, offener Klassenrunde oder freier Steuerung
+- Startseite mit sieben Spielkacheln (drei „Spielbereit", die übrigen **„In Entwicklung"**) und Erklärung des verdeckten Kartenduells
 - Navigation; Fragenbibliothek und KI-Prompt-Generator als gekennzeichnete Vorschau („Geplant")
 - Einstellungen: Animationen (System / Voll / Reduziert), Darstellungsgröße (100–120 %), Zurücksetzen
 - Vollbild (Schaltfläche oder Taste **F**), Skalierung für 1366×768 bis 3840×2160
 
-Noch in Entwicklung: die übrigen sechs Spiele.
+Noch in Entwicklung: Bosskampf, Jeopardy, Memory, Schatzsuche.
 
 ## Lokale Entwicklung
 
@@ -35,7 +35,7 @@ npm run preview    # Build lokal ansehen
 ## Bedienung
 
 - Spielkachel antippen → spielbare Spiele öffnen ihre Einstellungen, alle anderen zeigen Beschreibung und Entwicklungsstand.
-- Im Spiel: **→ / 1** und **← / 2** Spielzug für Mannschaft 1 bzw. 2 · **Leertaste** nächster Rundenschritt (Bedenkzeit starten, Karte ziehen) · **P** oder **Esc** Pause · **Rücktaste** oder **Strg+Z** rückgängig.
+- Im Spiel: **1–4** Spielzug für Mannschaft 1–4 (Tafelfußball zusätzlich **→ / ←**; Vier gewinnt: nach „Richtig“ wählt die Ziffer die Spalte) · **Leertaste** nächster Rundenschritt (Bedenkzeit starten, Karte ziehen) · **P** oder **Esc** Pause · **Rücktaste** oder **Strg+Z** rückgängig.
 - **F** oder Schaltfläche oben rechts → Vollbild.
 - Einstellungen werden nur lokal im Browser gespeichert. Es werden keine Schülerdaten erhoben, keine externen Dienste genutzt und keine Töne ausgegeben.
 
