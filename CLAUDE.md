@@ -25,11 +25,13 @@ Auftrag erfassen → relevante Infos lesen → betroffenen Code prüfen → umse
 ## Architektur (Kurzfassung)
 
 - React 19 + TypeScript (strict, `exactOptionalPropertyTypes`, `noUncheckedIndexedAccess`) + Vite 8, Vitest.
-- Styling: CSS Modules + Design-Tokens in `src/styles/tokens.css` (kein Tailwind, siehe DESIGN_SYSTEM). Motion-Bibliothek erst bei Bedarf (Phase 2).
+- Styling: CSS Modules + Design-Tokens in `src/styles/tokens.css` (kein Tailwind, siehe DESIGN_SYSTEM). Motion nur bei echtem Bedarf.
 - Routing: eigener Hash-Router `src/app/router.ts` (GitHub-Pages-tauglich), `base: './'`.
 - Skalierung: Root-`font-size` proportional zum Viewport (1rem = 16px bei 1920×1080); Layout in `rem`, Startseite füllt genau einen Bildschirm.
-- `src/core/` gemeinsame Systeme: `games/` (Typen, Registry), `answer-modes/`, `settings/`, `storage/`. `src/games/<id>/` je Spielmodul; Metadaten in `src/games/definitions.ts`. `src/components/` UI (ui/, layout/, game-tile/, illustrations/). `src/app/` App, Router, Seiten.
+- `src/core/` gemeinsame Systeme: `games/` (Typen, Registry), `teams/`, `game-session/` (Undo-History), `answer-modes/` (Katalog, Kartenpool, `useAnswerRound`), `settings/` (App + `persistedSettings` je Spiel), `storage/`. `src/games/<id>/` je Spielmodul (reine `logic.ts` + Tests, `settings.ts`, Setup, Spielansicht, `…Module.tsx` als lazy Einstieg via `load` in `src/games/definitions.ts`). `src/components/` UI (ui/, layout/, game/, game-tile/, illustrations/). `src/app/` App, Hash-Router (`#/spiel/<id>`), Seiten.
+- Spiellogik als reine Funktionen; Spielansicht hält `History<State>`; Antwortmodi über `useAnswerRound` + `RoundControls`/`RoundStage` wiederverwenden. Animationen per CSS (Motion bisher nicht nötig).
 - Einstellungen: `localStorage` (Präfix `tafelarena:`), immer über `sanitize…`-Funktionen gelesen. Größere Daten später IndexedDB, Validierung mit Zod (Phase 4).
+- Illustrationen: Bildsprache „Kreide & Gold" (handgemalt, warmes Tageslicht, Kreide-Elemente, Gold als einziger Glanz) – Regeln in `docs/DESIGN_SYSTEM.md`, Prompts in `docs/ASSET_PROMPTS.md`.
 - Code/Bezeichner englisch, UI und Dokumentation deutsch.
 
 ## Befehle

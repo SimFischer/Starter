@@ -84,3 +84,4 @@ Pro Frage: `question` (Pflicht), `answer` (Pflicht, Musterlösung), optional `ac
 | Schlüssel | Inhalt |
 |---|---|
 | `tafelarena:settings:app:v1` | `{ motion: "system"\|"full"\|"reduced", uiScale: "standard"\|"large"\|"xlarge" }` – wird beim Lesen bereinigt |
+| `tafelarena:settings:game:football:v1` | zuletzt verwendete Tafelfußball-Einstellungen (Mannschaften, Modus, Regeln, Zeiten, Kartenpool) – wird beim Lesen bereinigt |

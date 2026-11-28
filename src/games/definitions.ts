@@ -9,8 +9,8 @@ import { TreasureHuntIllustration } from './treasure-hunt/Illustration';
 
 /**
  * Launcher metadata of all game modules, in display order.
- * When a game becomes playable it additionally registers its lazily loaded
- * screen here (Phase 2+); until then status stays 'in-development'.
+ * Playable games register their lazily loaded screen via `load`;
+ * all others stay visibly 'in-development'.
  */
 export const GAME_DEFINITIONS: readonly GameDefinition[] = [
   {
@@ -25,9 +25,10 @@ export const GAME_DEFINITIONS: readonly GameDefinition[] = [
     answerModes: ['hidden-cards', 'team-consult', 'open-round', 'free-control'],
     contentType: 'questions',
     accent: { primary: '#2FBF71', secondary: '#8EE4AF' },
-    status: 'in-development',
+    status: 'playable',
     plannedPhase: 2,
     Illustration: FootballIllustration,
+    load: () => import('./football/FootballModule'),
   },
   {
     id: 'horse-race',

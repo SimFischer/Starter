@@ -1,5 +1,7 @@
 # Grafische Assets
 
+Alle Illustrationen folgen der Bildsprache **„Kreide & Gold"** (`DESIGN_SYSTEM.md`): handgemalte Bilderbuch-Illustration, warmes Nachmittagslicht, ein bis zwei Kreide-Elemente pro Bild, Gold als einziger Glanz, Ränder laufen in Marineblau aus. Fertige, kopierbare Prompts: [`ASSET_PROMPTS.md`](ASSET_PROMPTS.md).
+
 ## Provisorische Assets (im Code, zu ersetzen)
 
 | Asset | Ort | Ersatz durch |
@@ -7,36 +9,37 @@
 | Wortmarke + Emblem (SVG im Code) | `src/components/layout/Wordmark.tsx`, `public/favicon.svg` | `shared/logo-wordmark.svg`, `shared/logo-emblem.svg` |
 | 7 Spielkachel-Illustrationen (SVG im Code) | `src/games/<id>/Illustration.tsx` | `<id>/tile.webp` |
 | Kachel „Verdecktes Kartenduell" | `src/components/illustrations/CardDuelIllustration.tsx` | `shared/card-duel.webp` |
+| Tafelfußball-Spielfeld, Ball, Tore (SVG im Code) | `src/games/football/Pitch.tsx`, `FootballGame.tsx` | `football/*` (siehe unten) |
 
-Die Kachel zeigt die Illustration mit `object-fit: cover`-Verhalten in einem Format von ca. 2,6:1 (Kachel) bzw. ca. 0,8:1 (Detaildialog). **Motiv daher zentriert komponieren**, wichtige Elemente im mittleren Drittel, Ränder dürfen beschnitten werden.
+Kacheln zeigen die Illustration beschnitten im Format ca. 2,6:1, der Detaildialog ca. 0,8:1. **Motiv zentriert komponieren**, wichtige Elemente im mittleren Drittel.
 
 ## Wunschliste – Priorität 1
 
-Gemeinsamer Stil: hochwertig stilisierte Videospiel-Illustration (Richtung moderner Indie-/Mobile-Premium-Titel), atmosphärisches Licht, räumliche Tiefe, leicht gesättigte Farben auf dunklem Grund, keine Schrift im Bild, keine realen Marken/Logos, nicht kindlich, keine Gewalt. Ablage unter `public/assets/`.
+Ablage unter `public/assets/`. Reihenfolge: zuerst Nr. 3 (Tafelfußball-Kachel) als Leitbild fertigstellen und bei allen weiteren als Stilreferenz verwenden.
 
-| Dateiname | Zweck | Maße | Format | Transparenz | Stil / Perspektive |
-|---|---|---|---|---|---|
-| `shared/logo-wordmark.svg` | Wortmarke „TafelArena" im Header | ca. 640×160 (4:1) | SVG | ja | Kräftige, moderne Grotesk mit Charakter; „Arena" in Gold-Verlauf, „Tafel" hell; dezenter Bezug zu Tafel/Kreide oder Arena (z. B. Hexagon-Emblem). Muss auf #101827 und in 40px Höhe funktionieren. |
-| `shared/logo-emblem.svg` | Favicon, App-Icon, Ladebildschirm | 512×512 (1:1) | SVG (+ PNG 512/192) | ja | Emblem allein, ohne Text lesbar bis 32px |
-| `football/tile.webp` | Kachel Tafelfußball | 1600×1000 (16:10) | WebP | nein | Flutlicht-Stadion bei Nacht, leicht erhöhte Seitenperspektive auf das Spielfeld, Ball in Feldmitte, beide Tore sichtbar; Smaragdgrün |
-| `horse-race/tile.webp` | Kachel Pferderennen | 1600×1000 | WebP | nein | Rennbahn im Abendlicht, seitliche Perspektive, 3–4 galoppierende Pferde mit farbigen Satteldecken, Ziellinie rechts; Bernstein/Naturtöne |
-| `connect-four/tile.webp` | Kachel Vier gewinnt | 1600×1000 | WebP | nein | Räumliches Spielbrett, leicht von schräg vorn, fallender Stein, rote Steine mit Ring-, blaue mit Rautensymbol, leuchtende Gewinnreihe |
-| `boss-battle/tile.webp` | Kachel Bosskampf | 1600×1000 | WebP | nein | Magische Arena, großer Endgegner (z. B. Steingolem) frontal, violetter Nebel, orangefarbener Kristallkern, magischer Treffer – episch, nicht brutal |
-| `jeopardy/tile.webp` | Kachel Jeopardy | 1600×1000 | WebP | nein | Eigenständige Quizshow-Bühne, Raster aus leuchtenden Feldern mit Punktwerten, Königsblau/Gold, Scheinwerfer; keine Anlehnung an TV-Branding |
-| `memory/tile.webp` | Kachel Memory | 1600×1000 | WebP | nein | Karten auf türkisfarbenem Tisch, Aufsicht leicht geneigt, ein aufgedecktes leuchtendes Paar, eine Karte im Umdrehen |
-| `treasure-hunt/tile.webp` | Kachel Schatzsuche | 1600×1000 | WebP | nein | Illustrierte Schatzinsel aus Vogelperspektive, geöffnete Truhe mit Gold und Edelsteinen, Gold/Petrol |
-| `shared/card-duel.webp` | Kachel/Dialog Verdecktes Kartenduell | 1600×1000 | WebP | nein | Eine verdeckte, eine aufgedeckte Spielkarte (Herz 7) mit goldenem Lichtschein, eigene Kartenrückseite im TafelArena-Stil |
+| Nr. | Dateiname | Zweck | Maße | Format | Transparenz | Motiv (Kurzfassung) |
+|---|---|---|---|---|---|---|
+| 1 | `shared/logo-wordmark.svg` | Wortmarke im Header | ca. 640×160 (4:1) | SVG (aus PNG vektorisiert) | ja | „Tafel" in Kreideweiß, „Arena" in Gold, freundlich-kräftige Schrift; Emblem: sechseckige Schiefertafel mit Goldrahmen und Kreide-„T" |
+| 2 | `shared/logo-emblem.svg` | Favicon, App-Icon | 512×512 | SVG (+ PNG 512/192) | ja | Sechseckige Schiefertafel, Goldrahmen, Kreide-„T"; lesbar bis 32px |
+| 3 | `football/tile.webp` | Kachel Tafelfußball | 1600×1000 (16:10) | WebP | nein | Gemütliches Kleinstadtstadion im Nachmittagslicht, Kreide-Spielfeldlinien, Lederball auf dem Anstoßpunkt |
+| 4 | `horse-race/tile.webp` | Kachel Pferderennen | 1600×1000 | WebP | nein | Rennbahn auf dem Land, drei galoppierende Pferde mit Teamfarben, Ziellinie als Kreidelinie |
+| 5 | `connect-four/tile.webp` | Kachel Vier gewinnt | 1600×1000 | WebP | nein | Hölzernes Spielbrett im hellen Raum, rote Steine mit Ring, blaue mit Raute, Gewinnreihe mit Kreidestrich markiert |
+| 6 | `boss-battle/tile.webp` | Kachel Bosskampf | 1600×1000 | WebP | nein | Freundlich-majestätischer Moos-Steingolem in sonniger Ruine, Kreide-Runenkreis, violette und orange Magie – nicht gruselig |
+| 7 | `jeopardy/tile.webp` | Kachel Quiz | 1600×1000 | WebP | nein | Große alte Bibliothekshalle, hölzerne Quizwand 5×5 mit Gold-Punktwerten, Kategorietafeln mit Kreidegekritzel |
+| 8 | `memory/tile.webp` | Kachel Memory | 1600×1000 | WebP | nein | Sonniger Holztisch, bemalte Karten, aufgedecktes Paar (Sonne/Sonnenaufgang) mit Kreidelinie verbunden |
+| 9 | `treasure-hunt/tile.webp` | Kachel Schatzsuche | 1600×1000 | WebP | nein | Handgemalte Schatzinsel aus der Vogelperspektive, Kreide-Route und Kreide-Kompassrose, offene Truhe mit Gold |
+| 10 | `shared/card-duel.webp` | Kachel/Dialog Kartenduell | 1600×1000 | WebP | nein | Zwei Spielkarten auf sonnigem Schulpult (eine verdeckt, eine Herz-7), Kreidepfeil, unscharfe Tafel dahinter |
 
 ## Wunschliste – Tafelfußball (Phase 2)
 
-Spielwelt in Ebenen; bewegliche Objekte separat und animierbar per CSS/SVG.
+Spielwelt in Ebenen; bewegliche Objekte separat und per CSS/SVG animierbar. Stilreferenz: Nr. 3.
 
-| Dateiname | Zweck | Maße | Format | Transparenz | Stil / Perspektive / Animierbarkeit |
-|---|---|---|---|---|---|
-| `football/stadium-bg.webp` | Hintergrund: Tribünen, Flutlicht, Himmel | 3840×2160 (16:9) | WebP | nein | Nachtstadion, Tribünen mit stilisierter Menge (keine Gesichter), Lichtkegel; untere 60 % ruhig/dunkel, da dort das Spielfeld liegt |
-| `football/pitch.svg` | Spielfeld mit Markierungen | 1920×900 | SVG | ja | Leicht perspektivisch oder frontal, Rasenstreifen; Positionen werden im Code darübergelegt (variable Anzahl) |
-| `football/goal-left.webp`, `goal-right.webp` | Tore mit Netz | je 400×600 | WebP | ja | passend zur Spielfeldperspektive; Netz als eigene Ebene wünschenswert (Netz-„Beulen" bei Tor animierbar) |
-| `football/ball.svg` | Ball | 256×256 | SVG | ja | Stilisiert, klar erkennbar; Rotation per CSS |
-| `football/ball-shadow.svg` | Schatten | 256×64 | SVG | ja | weich, skaliert beim „Rollen" |
-| `football/team-crests.svg` | Mannschaftssymbole (Sprite, 8 Stück) | je 128×128 | SVG | ja | geometrisch unterscheidbar (Kreis, Dreieck, Stern, Raute …), einfarbig umfärbbar |
-| `football/goal-burst.webp` | Toreffekt (Lichtexplosion) | 1024×1024 | WebP | ja | Goldener Strahlenkranz, wird skaliert/ausgeblendet; Konfetti entsteht im Code |
+| Nr. | Dateiname | Zweck | Maße | Format | Transparenz | Motiv / Animierbarkeit |
+|---|---|---|---|---|---|---|
+| 11 | `football/stadium-bg.webp` | Hintergrund | 3840×2160 (16:9) | WebP | nein | Stadion aus Nr. 3, Tribünen mit Fahnen oben; untere 60 % ruhig, dort liegt das Spielfeld |
+| 12 | `football/pitch.svg` | Spielfeld | 1920×900 | SVG/PNG | ja | Draufsicht, handgemalter Rasen, alle Linien als Kreidelinien; Positionen legt der Code darüber |
+| 13 | `football/goal-left.webp`, `goal-right.webp` | Tore | je 400×600 | WebP | ja | Weiße Holzpfosten, weiches Netz; Netz möglichst als eigene Ebene (Ausbeulen beim Tor) |
+| 14 | `football/ball.svg` | Ball | 256×256 | SVG/PNG | ja | Klassischer Lederball, Nähte sichtbar; Rotation per CSS |
+| 15 | `football/ball-shadow.svg` | Schatten | 256×64 | SVG/PNG | ja | weich, skaliert beim Rollen |
+| 16 | `football/team-crests.svg` | Mannschaftssymbole (Sprite, 8 Stück) | je 128×128 | SVG | ja | Weiß mit Kreidetextur, im Code einfärbbar: Herz, Pik, Karo, Kreuz, Stern, Kreis, Dreieck, Sechseck |
+| 17 | `football/goal-burst.webp` | Toreffekt | 1024×1024 | WebP | ja | Goldenes Licht mit Kreidestaub-Wirbeln; Konfetti entsteht im Code |

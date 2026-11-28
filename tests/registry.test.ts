@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { parseRoute } from '../src/app/router';
+import { gamePath, parseRoute } from '../src/app/router';
 import { describeTeams, getGame, listGames } from '../src/core/games/registry';
 
 describe('game registry', () => {
@@ -39,8 +39,9 @@ describe('game registry', () => {
     }
   });
 
-  it('marks unfinished games honestly', () => {
-    for (const g of games) expect(g.status).toBe('in-development');
+  it('marks games honestly: playable exactly when a screen is registered', () => {
+    for (const g of games) expect(g.status === 'playable').toBe(typeof g.load === 'function');
+    expect(getGame('football')!.status).toBe('playable');
   });
 
   it('describes team setups in German', () => {
@@ -52,13 +53,16 @@ describe('game registry', () => {
 
 describe('parseRoute', () => {
   it('maps hashes to routes and falls back to home', () => {
-    expect(parseRoute('')).toBe('home');
-    expect(parseRoute('#/')).toBe('home');
-    expect(parseRoute('#/einstellungen')).toBe('settings');
-    expect(parseRoute('#/Einstellungen/')).toBe('settings');
-    expect(parseRoute('#/fragenbibliothek')).toBe('library');
-    expect(parseRoute('#/ki-prompts')).toBe('prompts');
-    expect(parseRoute('#/gibt-es-nicht')).toBe('home');
-    expect(parseRoute('#main')).toBe('home');
+    const name = (h: string) => parseRoute(h).name;
+    expect(name('')).toBe('home');
+    expect(name('#/')).toBe('home');
+    expect(name('#/einstellungen')).toBe('settings');
+    expect(name('#/Einstellungen/')).toBe('settings');
+    expect(name('#/fragenbibliothek')).toBe('library');
+    expect(name('#/ki-prompts')).toBe('prompts');
+    expect(name('#/gibt-es-nicht')).toBe('home');
+    expect(name('#main')).toBe('home');
+    expect(name('#/spiel/')).toBe('home');
+    expect(parseRoute(gamePath('football'))).toEqual({ name: 'game', gameId: 'football' });
   });
 });

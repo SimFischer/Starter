@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 import styles from './Badge.module.css';
 
-export type BadgeTone = 'development' | 'planned' | 'cooperative' | 'competitive' | 'neutral';
+export type BadgeTone = 'ready' | 'development' | 'planned' | 'cooperative' | 'competitive' | 'neutral';
 
 /** Status display – always text (+ shape), never colour alone. */
 export function Badge({ tone = 'neutral', children, className }: { tone?: BadgeTone; children: ReactNode; className?: string | undefined }) {

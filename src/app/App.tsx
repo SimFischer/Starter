@@ -7,7 +7,9 @@ import { useMediaQuery } from '../hooks/useMediaQuery';
 import { HomePage } from './pages/HomePage';
 import { LIBRARY_FEATURE, PROMPT_FEATURE, PlannedFeaturePage } from './pages/PlannedFeaturePage';
 import { SettingsPage } from './pages/SettingsPage';
-import { useRoute, type RouteName } from './router';
+import { GamePage } from './pages/GamePage';
+import { parseRoute, useHash, type RouteName } from './router';
+import { listGames } from '../core/games/registry';
 import styles from './App.module.css';
 
 const TITLES: Record<RouteName, string> = {
@@ -22,7 +24,13 @@ function isTypingTarget(target: EventTarget | null) {
 }
 
 export function App() {
-  const route = useRoute();
+  const hash = useHash();
+  const route = parseRoute(hash);
+  const routeKey = route.name === 'game' ? `game:${route.gameId}` : route.name;
+  const title =
+    route.name === 'game'
+      ? `${listGames().find((g) => g.id === route.gameId)?.title ?? 'Spiel'} · TafelArena`
+      : TITLES[route.name];
   const settings = useAppSettings();
   const systemReduced = useMediaQuery('(prefers-reduced-motion: reduce)');
   const { toggle: toggleFullscreen } = useFullscreen();
@@ -36,9 +44,9 @@ export function App() {
   }, [reducedMotion, settings.uiScale]);
 
   useEffect(() => {
-    document.title = TITLES[route];
+    document.title = title;
     window.scrollTo(0, 0);
-  }, [route]);
+  }, [routeKey, title]);
 
   useEffect(() => {
     const onKey = (event: KeyboardEvent) => {
@@ -61,11 +69,12 @@ export function App() {
       }}>
         Zum Inhalt springen
       </a>
-      <AppHeader route={route} />
-      {route === 'home' && <HomePage />}
-      {route === 'library' && <PlannedFeaturePage feature={LIBRARY_FEATURE} />}
-      {route === 'prompts' && <PlannedFeaturePage feature={PROMPT_FEATURE} />}
-      {route === 'settings' && <SettingsPage />}
+      {route.name !== 'game' && <AppHeader route={route.name} />}
+      {route.name === 'game' && <GamePage key={route.gameId} gameId={route.gameId} />}
+      {route.name === 'home' && <HomePage />}
+      {route.name === 'library' && <PlannedFeaturePage feature={LIBRARY_FEATURE} />}
+      {route.name === 'prompts' && <PlannedFeaturePage feature={PROMPT_FEATURE} />}
+      {route.name === 'settings' && <SettingsPage />}
     </div>
   );
 }

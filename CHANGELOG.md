@@ -1,5 +1,21 @@
 # Changelog
 
+## [Unveröffentlicht]
+
+### Geändert
+- Bildsprache „Kreide & Gold“ festgelegt (handgemalte Bilderbuch-Illustration, warmes Tageslicht, Kreide-Elemente als Markenzeichen, Gold als einziger Glanz); Asset-Wunschliste überarbeitet und kopierfertige Bild-Prompts in `docs/ASSET_PROMPTS.md`.
+
+## [0.2.0] – 2026-11-26 – Phase 2: Tafelfußball
+
+### Hinzugefügt
+- **Tafelfußball spielbar:** Setup mit Schnellstart (zuletzt verwendete Einstellungen), Mannschaften mit Name/Farbe/Symbol, Antwortmodus, Siegbedingung, Spielzeit und erweiterten Optionen; Stadion-Spielwelt mit Positionen, rollendem Ball, Torjubel mit Konfetti, Sieg-/Unentschieden-/Endstand-Anzeige, Revanche.
+- **Verdecktes Kartenduell:** Bedenkzeit-Ring, Kartenenthüllung mit Ansage („Die Siebenen antworten!“), weitere Karte, manuelle Kartenwahl, Spielkarten oder Nummernkarten, mit/ohne Zurücklegen, automatisches oder manuelles Neumischen.
+- Mannschaftsberatung, offene Klassenrunde und freie Lehrkraftsteuerung als weitere Antwortmodi.
+- Rückgängig über den ganzen Spielstand (auch nach Tor und Spielende), Pause mit angehaltenen Timern, Runde ohne Wertung, Bestätigung vor Spielende, Eingabesperre während der Ballbewegung.
+- Tastenkürzel im Spiel: → / 1 und ← / 2 (Spielzug), Leertaste (nächster Rundenschritt), P / Esc (Pause), Rücktaste / Strg+Z (Rückgängig), F (Vollbild).
+- Gemeinsame Systeme für weitere Spiele: Mannschaften, Spielverlauf mit Undo, Kartenpool, Rundenablauf, gespeicherte Spieleinstellungen, Spielkomponenten.
+- Startseite: Tafelfußball als „Spielbereit“, Start mit einem Klick; Spiele werden bei Bedarf nachgeladen.
+
 ## [0.1.0] – 2026-11-25 – Phase 1: Projektfundament
 
 ### Hinzugefügt

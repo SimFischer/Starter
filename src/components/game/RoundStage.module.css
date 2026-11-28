@@ -1,0 +1,38 @@
+.stage {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  pointer-events: none;
+  background: radial-gradient(closest-side, rgb(5 8 14 / 0.55), transparent);
+}
+
+.cards {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.callout {
+  padding: 0.7rem 2rem;
+  border-radius: var(--radius-pill);
+  background: rgb(11 17 28 / 0.88);
+  border: 1px solid rgb(246 217 148 / 0.5);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 2.75rem;
+  line-height: 1.1;
+  color: var(--c-gold-300);
+  box-shadow: var(--shadow-2);
+  animation: callout-in 420ms var(--ease-spring) 520ms both;
+}
+
+@keyframes callout-in {
+  from {
+    opacity: 0;
+    transform: translateY(1rem) scale(0.92);
+  }
+}
