@@ -1,37 +1,10 @@
-import { useState } from 'react';
+import { GameModule } from '../../components/game/GameModule';
 import type { GameScreenProps } from '../../core/games/types';
 import { FootballGame } from './FootballGame';
 import { FootballSetup } from './FootballSetup';
-import { footballSettingsStore, sanitizeFootballSettings, type FootballSettings } from './settings';
+import { footballSettingsStore, sanitizeFootballSettings } from './settings';
 
-/** Entry point of the Tafelfußball module: setup → match → result. */
+/** Entry point of the Tafelfußball module (lazy loaded via the registry). */
 export default function FootballModule({ onExit }: GameScreenProps) {
-  const [settings, setSettings] = useState<FootballSettings>(() => footballSettingsStore.load());
-  const [playing, setPlaying] = useState(false);
-  const [match, setMatch] = useState(0);
-
-  if (!playing) {
-    return (
-      <FootballSetup
-        initial={settings}
-        onStart={(chosen) => {
-          const clean = sanitizeFootballSettings(chosen);
-          footballSettingsStore.save(clean);
-          setSettings(clean);
-          setMatch((m) => m + 1);
-          setPlaying(true);
-        }}
-      />
-    );
-  }
-
-  return (
-    <FootballGame
-      key={match}
-      settings={settings}
-      onRematch={() => setMatch((m) => m + 1)}
-      onSetup={() => setPlaying(false)}
-      onExit={onExit}
-    />
-  );
+  return <GameModule store={footballSettingsStore} sanitize={sanitizeFootballSettings} Setup={FootballSetup} Game={FootballGame} onExit={onExit} />;
 }

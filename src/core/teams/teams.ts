@@ -61,3 +61,26 @@ export function sanitizeTeam(raw: unknown, fallback: TeamConfig): TeamConfig {
 export function teamsClash(a: TeamConfig, b: TeamConfig): boolean {
   return a.color === b.color || a.symbol === b.symbol;
 }
+
+/**
+ * Sanitizes a stored team list to `count` teams (clamped to min…max) that are
+ * pairwise distinguishable; clashing teams are replaced by free defaults.
+ */
+export function sanitizeTeams(raw: unknown, min: number, max: number, defaultCount = min): TeamConfig[] {
+  const list = Array.isArray(raw) ? raw : [];
+  const count = Math.min(max, Math.max(min, list.length || defaultCount));
+  const teams: TeamConfig[] = [];
+  for (let i = 0; i < count; i++) {
+    let team = sanitizeTeam(list[i], DEFAULT_TEAMS[i] ?? DEFAULT_TEAMS[0]!);
+    if (teams.some((t) => teamsClash(t, team))) {
+      team = DEFAULT_TEAMS.find((d) => !teams.some((t) => teamsClash(t, d))) ?? team;
+    }
+    teams.push(team);
+  }
+  return teams;
+}
+
+/** Adds the first default team that does not clash with the existing ones. */
+export function nextFreeTeam(teams: readonly TeamConfig[]): TeamConfig {
+  return DEFAULT_TEAMS.find((d) => !teams.some((t) => teamsClash(t, d))) ?? DEFAULT_TEAMS[teams.length % DEFAULT_TEAMS.length]!;
+}

@@ -1,5 +1,5 @@
 /** Provisional launcher artwork – replace with games/horse-race/tile.webp (docs/ASSETS.md). */
-const HORSE =
+export const HORSE_PATH =
   'M14 26C20 19 34 18 46 19C54 19 60 18 64 15C68 10 73 5 80 3L84 1L86 5C90 7 95 10 98 14L96 18C92 18 88 17 85 16C82 20 79 25 76 28C79 33 86 37 96 38L95 42C84 42 76 38 70 34L67 36C71 41 77 46 84 50L81 53C73 49 66 44 61 38C56 40 48 40 42 39C38 44 31 49 22 53L19 50C26 46 31 42 33 37C29 37 22 40 13 45L11 42C17 37 22 34 25 31C20 31 16 30 14 26ZM15 25C8 22 3 25 0 33C5 29 10 29 15 29Z';
 
 const RUNNERS = [
@@ -31,7 +31,7 @@ export function HorseRaceIllustration() {
           <rect width="5" height="5" fill="#1A0E06" />
           <rect x="5" y="5" width="5" height="5" fill="#1A0E06" />
         </pattern>
-        <path id="hr-horse" d={HORSE} />
+        <path id="hr-horse" d={HORSE_PATH} />
       </defs>
       <rect width="480" height="300" fill="url(#hr-sky)" />
       <circle cx="372" cy="118" r="70" fill="url(#hr-sun)" />

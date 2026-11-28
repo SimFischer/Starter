@@ -85,3 +85,5 @@ Pro Frage: `question` (Pflicht), `answer` (Pflicht, Musterlösung), optional `ac
 |---|---|
 | `tafelarena:settings:app:v1` | `{ motion: "system"\|"full"\|"reduced", uiScale: "standard"\|"large"\|"xlarge" }` – wird beim Lesen bereinigt |
 | `tafelarena:settings:game:football:v1` | zuletzt verwendete Tafelfußball-Einstellungen (Mannschaften, Modus, Regeln, Zeiten, Kartenpool) – wird beim Lesen bereinigt |
+| `tafelarena:settings:game:horse-race:v1` | zuletzt verwendete Pferderennen-Einstellungen (2–4 Mannschaften, Strecke, Schritte, Zeit, Antwortmodus) |
+| `tafelarena:settings:game:connect-four:v1` | zuletzt verwendete Vier-gewinnt-Einstellungen (Mannschaften, Brett, Zugmodus, Antwortmodus) |

@@ -1,0 +1,370 @@
+/* ===== Screen: scoreboard / stage / teacher controls – exactly one screen ===== */
+.screen {
+  height: 100dvh;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  overflow: hidden;
+  background: var(--c-navy-950);
+}
+
+/* ===== Scoreboard ===== */
+.scoreboard {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  gap: var(--sp-6);
+  min-height: 7rem;
+  padding: var(--sp-3) var(--sp-6);
+  background: linear-gradient(180deg, #0b111c, rgb(11 17 28 / 0.85));
+  border-bottom: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+  z-index: 2;
+}
+
+.teamScore {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+  min-width: 0;
+}
+
+.teamRight {
+  flex-direction: row-reverse;
+}
+
+.teamBadge {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  background: var(--team);
+  color: var(--c-navy-950);
+  font-size: 2.2rem;
+  box-shadow: 0 0 1.5rem color-mix(in srgb, var(--team) 45%, transparent);
+}
+
+.teamName {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--fs-xl);
+}
+
+.score {
+  display: grid;
+  place-items: center;
+  min-width: 6rem;
+  height: 5.5rem;
+  margin-left: auto;
+  padding: 0 var(--sp-4);
+  border-radius: var(--radius-md);
+  background: var(--c-navy-950);
+  border: 2px solid color-mix(in srgb, var(--team) 70%, transparent);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 4.25rem;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  animation: score-pop 520ms var(--ease-spring);
+}
+
+.teamRight .score {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+@keyframes score-pop {
+  from {
+    transform: scale(1.35);
+    color: var(--c-gold-300);
+  }
+}
+
+.teamScored .score {
+  box-shadow: 0 0 2.5rem color-mix(in srgb, var(--team) 70%, transparent);
+}
+
+.teamActive .teamBadge {
+  outline: 0.25rem solid var(--c-gold-300);
+  outline-offset: 0.3rem;
+}
+
+.matchInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  text-align: center;
+}
+
+.clock {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 2.25rem;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.target {
+  font-weight: 600;
+  font-size: var(--fs-md);
+  color: var(--c-gold-300);
+}
+
+.modeLabel {
+  font-size: var(--fs-xs);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--c-text-muted);
+}
+
+/* ===== Stage ===== */
+.stage {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 0;
+  overflow: hidden;
+  container-type: size;
+}
+
+.stage:focus {
+  outline: none;
+}
+
+/* ===== Overlays ===== */
+.overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 9;
+  display: grid;
+  place-items: center;
+  background: rgb(5 8 14 / 0.62);
+  backdrop-filter: blur(6px);
+  animation: fade-in 240ms ease both;
+}
+
+.overlayPanel {
+  position: relative;
+  z-index: 6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-4);
+  max-width: 90cqw;
+  padding: var(--sp-7) var(--sp-8);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--line-strong);
+  background: linear-gradient(180deg, var(--c-slate-800), var(--c-navy-900));
+  box-shadow: var(--shadow-2);
+  text-align: center;
+  color: var(--c-text-muted);
+  font-size: var(--fs-lg);
+}
+
+.overlayTitle {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 4rem;
+  line-height: 1;
+  color: var(--c-text);
+}
+
+.resultPanel {
+  border-color: color-mix(in srgb, var(--team, var(--c-gold-500)) 70%, transparent);
+  animation: fade-up 480ms var(--ease-out) both;
+}
+
+.trophies {
+  display: flex;
+  gap: var(--sp-3);
+}
+
+.trophy {
+  display: grid;
+  place-items: center;
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+  background: var(--team);
+  color: var(--c-navy-950);
+  font-size: 4.5rem;
+  box-shadow: 0 0 4rem color-mix(in srgb, var(--team) 55%, transparent);
+}
+
+.resultIcon {
+  font-size: 5rem;
+  color: var(--c-gold-300);
+}
+
+.finalScore {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: var(--sp-5);
+  color: var(--c-text);
+  font-weight: 600;
+}
+
+.finalScore > span:first-child {
+  text-align: right;
+}
+
+.finalScore strong {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 5rem;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.resultActions {
+  display: flex;
+  gap: var(--sp-3);
+  margin-top: var(--sp-3);
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(1.2rem);
+  }
+}
+
+/* ===== Teacher control bar ===== */
+.controlBar {
+  display: grid;
+  grid-template-columns: minmax(26rem, 1fr) minmax(0, auto) auto;
+  grid-template-areas: 'round awards utility';
+  align-items: center;
+  gap: var(--sp-5);
+  padding: var(--sp-3) var(--sp-6);
+  background: linear-gradient(0deg, #0b111c, rgb(11 17 28 / 0.92));
+  border-top: 1px solid var(--line);
+  z-index: 2;
+}
+
+.roundArea {
+  grid-area: round;
+  min-width: 0;
+}
+
+.awards {
+  grid-area: awards;
+  display: flex;
+  gap: var(--sp-3);
+  min-width: 0;
+}
+
+.award {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  min-height: 5.5rem;
+  min-width: 16rem;
+  padding: 0 var(--sp-5);
+  border: 0;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(180deg, color-mix(in srgb, var(--team) 82%, white), var(--team));
+  color: var(--c-navy-950);
+  text-align: left;
+  cursor: pointer;
+  touch-action: manipulation;
+  box-shadow:
+    0 0.4rem 1.4rem color-mix(in srgb, var(--team) 35%, transparent),
+    inset 0 1px 0 rgb(255 255 255 / 0.45);
+  transition:
+    transform var(--dur-fast) var(--ease-out),
+    opacity var(--dur-fast) ease;
+}
+
+.awardCompact {
+  flex: 1 1 0;
+  min-width: 10rem;
+  padding: 0 var(--sp-4);
+}
+
+.award:hover:not(:disabled) {
+  transform: translateY(-0.15rem);
+}
+
+.award:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+.award:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.awardSymbol {
+  flex: none;
+  font-size: 2.4rem;
+}
+
+.awardText {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  flex: 1;
+}
+
+.awardName {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 14rem;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--fs-xl);
+  line-height: 1.1;
+}
+
+.awardCompact .awardName {
+  max-width: 9rem;
+  font-size: var(--fs-lg);
+}
+
+.awardSub {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  opacity: 0.8;
+}
+
+.awardArrow {
+  flex: none;
+  font-size: 2rem;
+}
+
+.utility {
+  grid-area: utility;
+  display: flex;
+  gap: var(--sp-2);
+}
+
+/* Narrower than 3:2 (e.g. 4:3 boards): awards get their own row. */
+@media (max-aspect-ratio: 3/2) {
+  .controlBar {
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      'round utility'
+      'awards awards';
+    row-gap: var(--sp-3);
+  }
+  .awards > * {
+    flex: 1 1 0;
+  }
+}

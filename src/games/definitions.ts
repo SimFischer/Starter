@@ -42,9 +42,10 @@ export const GAME_DEFINITIONS: readonly GameDefinition[] = [
     answerModes: ['hidden-cards', 'team-consult', 'open-round', 'free-control'],
     contentType: 'questions',
     accent: { primary: '#E0A040', secondary: '#B9844F' },
-    status: 'in-development',
+    status: 'playable',
     plannedPhase: 3,
     Illustration: HorseRaceIllustration,
+    load: () => import('./horse-race/HorseRaceModule'),
   },
   {
     id: 'connect-four',
@@ -58,9 +59,10 @@ export const GAME_DEFINITIONS: readonly GameDefinition[] = [
     answerModes: ['hidden-cards', 'team-consult', 'open-round', 'free-control'],
     contentType: 'questions',
     accent: { primary: '#E5484D', secondary: '#3E8BFF' },
-    status: 'in-development',
+    status: 'playable',
     plannedPhase: 3,
     Illustration: ConnectFourIllustration,
+    load: () => import('./connect-four/ConnectFourModule'),
   },
   {
     id: 'boss-battle',

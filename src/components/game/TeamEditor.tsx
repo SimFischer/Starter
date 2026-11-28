@@ -17,16 +17,18 @@ interface Props {
   /** Other teams: their colour and symbol are not selectable (always distinguishable). */
   others: readonly TeamConfig[];
   onChange: (team: TeamConfig) => void;
+  /** Smaller controls when several teams share the column. */
+  compact?: boolean;
 }
 
 /** Edits one team's name, colour and symbol. Names are team names, never student names. */
-export function TeamEditor({ label, team, others, onChange }: Props) {
+export function TeamEditor({ label, team, others, onChange, compact = false }: Props) {
   const nameId = useId();
   const takenColors = new Set(others.map((t) => t.color));
   const takenSymbols = new Set(others.map((t) => t.symbol));
 
   return (
-    <fieldset className={styles.editor} style={{ '--team': teamColor(team) } as CSSProperties}>
+    <fieldset className={`${styles.editor} ${compact ? styles.compact : ''}`} style={{ '--team': teamColor(team) } as CSSProperties}>
       <legend className="visually-hidden">{label}</legend>
       <div className={styles.head}>
         <span className={styles.badge} aria-hidden="true">
